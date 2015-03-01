@@ -8,9 +8,23 @@ requirejs.config({
 	// the paths config could be for a directory.
 	paths : {
 		jquery : 'jquery/dist/jquery',
-		angular : 'angularjs/angular'
+		angular : 'angularjs/angular',
+		app : '../components/app',
+		coreModule : '../components/coreModule'
+	},
+	
+	shim : {
+		'angular' : {
+			deps:['jquery']
+		},
+		'app' : {
+			deps:['angular', 'coreModule']
+		},
+		'coreModule' : {
+			deps:['angular']
+		}
 	}
 });
-requirejs([ '../components/app' ], function(app) {
-	alert('main');
+require([ 'app' ], function() {
+	angular.bootstrap(document, ['app']);
 });

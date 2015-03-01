@@ -1,6 +1,6 @@
-requirejs([ 'jquery', 'angular'], function($, angular) {
+define(function() {
 	// jQuery, canvas and the app/sub module are all
 	// loaded and can be used here now.
-	
-	$("#hello").text("hello");
+	angular.module("app", ['coreModule']);
+	//$("#hello").text("hello");
 });
